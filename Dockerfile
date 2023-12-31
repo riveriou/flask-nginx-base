@@ -17,7 +17,7 @@ WORKDIR /data
 ADD . /data
 RUN chmod 755 /data/*
 
-RUN /data/sshd.sh
+RUN /data/ssh.sh
 RUN cat ./default > /etc/nginx/sites-available/default
 
 #RUN rm -r /data/*.sh
