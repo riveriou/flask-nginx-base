@@ -1,9 +1,9 @@
 server {
-        listen 8080;  # 监听端口，http默认80
+        listen 80;  # 监听端口，http默认80
 #        return 301 https://$host$request_uri;
 #}
 #server {
-        listen 8443 ssl;
+        listen 443 ssl;
 
         ssl_certificate /etc/nginx/ssl/nginx.crt;
         ssl_certificate_key /etc/nginx/ssl/nginx.key;
