@@ -37,7 +37,7 @@ RUN echo 'exec supervisord -c /etc/supervisor/supervisord.conf' >> /startup.sh
 RUN chmod +x /startup.sh
 
 EXPOSE  22
-EXPOSE  80
-EXPOSE  443
+EXPOSE  8080
+EXPOSE  8443
 EXPOSE  8000
 CMD ["/startup.sh"]
