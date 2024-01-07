@@ -1,7 +1,12 @@
 server {
-        # listen 80 default_server;
-        # listen [::]:80 default_server ipv6only=on;
         listen 80;  # 监听端口，http默认80
+        rewrite ^(.*) https://$host$1 permanent
+}
+server {
+        listen 443 ssl;
+
+        ssl_certificate /etc/nginx/ssl/nginx.crt;
+        ssl_certificate_key /etc/nginx/ssl/nginx.key;
 
         # root /usr/share/nginx/html;
         root /data;      # flask项目根路径
