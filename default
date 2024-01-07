@@ -1,8 +1,6 @@
 server {
         listen 8080;  # 监听端口，http默认80
-        rewrite ^(.*) https://$host$1 permanent
-}
-server {
+
         listen 8443 ssl;
 
         ssl_certificate /etc/nginx/ssl/nginx.crt;
