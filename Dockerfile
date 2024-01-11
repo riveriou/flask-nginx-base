@@ -11,6 +11,9 @@ RUN apt-get update --fix-missing
 RUN apt-get install -y curl wget vim nano lsof net-tools dialog software-properties-common less unzip gpg-agent less unzip apt-utils
 RUN apt-get install -y openssh-server supervisor python3 python3-pip nginx
 RUN pip install flask uwsgi
+RUN apt-get install -y cron
+
+RUN apt-get clean
 
 VOLUME /out
 WORKDIR /data
