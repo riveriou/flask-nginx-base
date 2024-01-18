@@ -1,7 +1,7 @@
 server {
         listen 80;  # 监听端口，http默认80
 #        return 301 https://$host$request_uri;
-#},
+#}
 #server {
 #        listen 443 ssl;
 
