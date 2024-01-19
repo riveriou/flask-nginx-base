@@ -4,14 +4,16 @@ MAINTAINER River riou
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG C.UTF-8
 
-RUN ln -snf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo Asia/Taipei > /etc/timezone
-
 RUN apt-get update
 RUN apt-get update --fix-missing
 RUN apt-get install -y curl wget vim nano lsof net-tools dialog software-properties-common less unzip gpg-agent less unzip apt-utils
-RUN apt-get install -y openssh-server supervisor python3 python3-pip nginx
+RUN apt-get install -y openssh-server supervisor python3 python3-pip nginx cron tzdata
 RUN pip install flask uwsgi pandas
-RUN apt-get install -y cron
+
+#RUN apt-get install -y 
+
+RUN ln -snf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo Asia/Taipei > /etc/timezone
+run dpkg-reconfigure -f noninteractive tzdata 
 
 RUN apt-get clean
 
@@ -43,4 +45,7 @@ EXPOSE  22
 EXPOSE  80
 EXPOSE  443
 EXPOSE  8000
+EXPOSE  8080
+EXPOSE  8443
+
 CMD ["/startup.sh"]
