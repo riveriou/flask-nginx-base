@@ -36,7 +36,7 @@ RUN echo '/usr/sbin/sshd -D &' >> /startup.sh
 RUN echo '#python3 /data/app.py &' >> /startup.sh
 RUN echo '#nohup uwsgi --ini /data/flask_uwsgi.ini &' >> /startup.sh
 RUN echo '#/usr/sbin/nginx &' >> /startup.sh
-
+RUN echo '/cron.sh &' >> /startup.sh
 RUN echo 'exec supervisord -c /etc/supervisor/supervisord.conf' >> /startup.sh
 
 RUN chmod +x /startup.sh
